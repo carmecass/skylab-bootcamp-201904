@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+body {
+  font-family: Roboto;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+.section1 {
+  display: flex;
+  flex-direction: row;
+  background: red;
+  height: 3em;
+}
+.section1__div {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  width: 50%;
+  justify-content: flex-end;
+}
+.section1__div__lupa {
+  width: 13%;
+  fill: white;
+}
+
+.name {
+  color: white;
+  font-size: 20px;
+  padding: 0.5em;
+}
+.name--sect3 {
+  padding: 0.5em 0 0 0.2em;
+  font-size: 24px;
+  color: black;
+}
+
+.play {
+  width: 20%;
+  fill: white;
+}
+.play--rojo {
+  fill: red;
+  width: 10%;
+}
+
+.dotsmenu {
+  width: 13%;
+  fill: white;
+}
+
+.section2 {
+  display: flex;
+}
+.section2__div {
+  position: relative;
+}
+.section2__div__patos {
+  width: 100%;
+}
+.section2__div__icon-img {
+  border-radius: 50%;
+  position: absolute;
+  left: 5%;
+  top: 70%;
+  width: 18%;
+  z-index: 1;
+}
+
+.section3 {
+  padding-top: 1em;
+  padding-left: 2em;
+}
+.section3__div {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+.section3__div__subs {
+  color: red;
+  padding-left: 1em;
+}
+.section3__div__visit {
+  color: grey;
+  padding-left: 0.7em;
+}
+
+.section4 {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.arrow {
+  width: 6%;
+}
+
+/*# sourceMappingURL=style.css.map */

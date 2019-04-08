@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto')
+
+$font: Roboto
+$fill: white
+$width: 13%
+
+%section1-div-share
+    
+
+body
+    font-family: $font
+    margin: 0
+    padding: 0
+    
+
+// HEADER //
+header
+    display: flex
+    flex-direction: column
+
+.section1
+    display: flex
+    flex-direction: row
+    background: red      
+    height: 3em
+    &__div
+        display: flex
+        flex-direction: row
+        align-content: space-between 
+        width: 50%
+        justify-content: flex-end
+
+        &__lupa
+            width: $width
+            fill: $fill
+.name
+    color: white   
+    font-size: 20px
+    padding: .5em
+    &--sect3
+        padding: .5em 0 0 .2em
+        font-size: 24px
+        color: black
+
+.play
+    width: 20%
+    fill: $fill   
+    &--rojo
+        fill: red
+        width: 10%
+
+.dotsmenu
+    width: $width
+    fill: $fill
+
+.section2
+    display: flex
+    &__div
+        position: relative
+
+        &__patos
+            width: 100%
+           
+        &__icon-img
+            border-radius: 50%
+            position: absolute
+            left: 5%
+            top: 70%
+            width: 18%            
+            z-index: 1
+
+.section3
+    padding-top: 1em
+    padding-left: 2em
+
+    &__div
+        display: flex
+        flex-direction: row
+        align-content: center
+        align-items: center
+
+        &__subs
+            color: red
+            padding-left: 1em
+        &__visit
+            color: grey
+            padding-left: .7em
+
+.section4
+    margin-top: 1.5em
+    text-align: center        
+        
+.arrow
+    width: 6%
+
+
+        
+
+    
