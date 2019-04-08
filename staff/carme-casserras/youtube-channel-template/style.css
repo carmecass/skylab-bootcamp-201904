@@ -72,8 +72,8 @@ header {
 }
 
 .section3 {
-  padding-top: 1em;
-  padding-left: 2em;
+  padding-top: 6%;
+  padding-left: 10%;
 }
 .section3__div {
   display: flex;
@@ -91,12 +91,21 @@ header {
 }
 
 .section4 {
-  margin-top: 1.5em;
+  margin-top: 1.1em;
   text-align: center;
+}
+.section4__menu {
+  margin-right: 0.5em;
 }
 
 .arrow {
   width: 6%;
+}
+
+.montana {
+  width: 100%;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
 }
 
 /*# sourceMappingURL=style.css.map */
