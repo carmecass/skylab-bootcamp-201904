@@ -256,12 +256,79 @@ Hooray.prototype.shift = function() {
  * @param {hooray} hooray The array to evaluate.
  *
  */
-
     Hooray.isArray = function(value) {
-
     
-    return value instanceof Hooray;
+    return value instanceof Hooray;   
+}
+
+/**
+ * returns a portion of an hooray into a new hooray object selected from begin to end
+ * 
+ * @param {hooray} hooray The hooray to pop the value from.
+ * 
+ * @returns {*} The value retrievied from the hooray.
+ */
+
+ Hooray.prototype.slice = function(a, b) {
+   
+    var nhooray = new Hooray();
+    var pos = 0;
+       
+    for (var i = 0; i < this.length; i ++) {
+        if (a > this.length-1) {
+            return nhooray;
+        }
+               
+        if ((i >= a) && (i <= b-1)) {
+            
+            nhooray.push(this[i]);
+            // pos++;             
+        } 
+    }      
+        return nhooray;
+}
+/**
+ * tests whether at least one element in the array passes the test implemented by the provided function
+ * 
+ * @param {hooray} hooray The hooray to pop the value from.
+ * @param {Function} callback The expression to evalute.
+ * @returns {*} The value retrievied from the hooray.
+ */
+Hooray.prototype.some = function(hooray, callback) {
+
+    for (var i = 0; i < this.length; i++) {
+       if (callback(this[i])) {
+           return true;
+        }
+    }  
+    return false;
+} 
+
+/**
+ * hanges the contents of an hooray by removing or replacing existing elements and/or adding new elements
+ * 
+ * @param {hooray} hooray The hooray to pop the value from.
+ * @param {Function} callback The expression to evalute.
+ * @returns {*} The value retrievied from the hooray.
+ */
+Hooray.prototype.splice = function(start, deleteCount) {
+
+    var result = new Hooray();
+    for (var i = 0; i < Math.min(start, this.length); i++) {
+      result.push(this[i]);
     }
+    for (var i = 2; i < arguments.length; i++) {
+      result.push(arguments[i]);
+    }
+    for (var i = start + deleteCount; i < this.length; i++) {
+      result.push(this[i]);
+    }
+    this.length = result.length;
+    for (var i = 0; i < this.length; i++) {
+      this[i] = result[i]; 
+    }
+    return result;
+  }
 
 
 

@@ -3,14 +3,14 @@
 describe('hooray', function () {
 
     describe('constructor', function () {
-        true && it('should construct an empty hooray when no arguments', function () {
+        it('should construct an empty hooray when no arguments', function () {
             var hooray = new Hooray;
 
             expect(hooray.length).toBe(0);
             expect(Object.keys(hooray).length).toBe(1);
         });
 
-        true && it('should construct a non-empty hooray when existing arguments', function () {
+        it('should construct a non-empty hooray when existing arguments', function () {
             var hooray = new Hooray(1, 2, 3);
             
             expect(hooray.length).toBe(3);
@@ -18,14 +18,14 @@ describe('hooray', function () {
             expect(Object.keys(hooray).length).toBe(4);
         });
 
-        true && it('should construct an empty hooray with length equal to when only one numeric argument', function () {
+        it ('should construct an empty hooray with length equal to when only one numeric argument', function () {
             var hooray = new Hooray(1);
 
             expect(hooray.length).toBe(1);
             expect(Object.keys(hooray).length).toBe(1);
         });
 
-        true && it('should construct a non-empty hooray with only one non-numeric argument', function () {
+        it('should construct a non-empty hooray with only one non-numeric argument', function () {
             var hooray = new Hooray('1');
 
             expect(hooray.length).toBe(1);
@@ -36,7 +36,7 @@ describe('hooray', function () {
     });
 
     describe('push', function () {
-        !true && it('should add a value at the end of an hooray', function () {
+        it('should add a value at the end of an hooray', function () {
             var hooray = new Hooray(1, 2, 3);
 
             var length = hooray.push(4);
@@ -46,7 +46,7 @@ describe('hooray', function () {
             expect(hooray).toEqual(jasmine.objectContaining({ 0: 1, 1: 2, 2: 3, 3: 4, length: 4 }));
         });
 
-        !true && it('should add multiple values at the end of an hooray in order', function () {
+        it('should add multiple values at the end of an hooray in order', function () {
             var hooray = new Hooray(1, 2, 3);
 
             var length = hooray.push(4, 5);
@@ -56,7 +56,7 @@ describe('hooray', function () {
             expect(hooray).toEqual(jasmine.objectContaining({ 0: 1, 1: 2, 2: 3, 3: 4, 4: 5, length: 5 }));
         });
 
-        !true && it('should not add a non-provided value at the end of an hooray', function () {
+        it('should not add a non-provided value at the end of an hooray', function () {
             var hooray = new Hooray(1, 2, 3);
 
             var length = hooray.push();
@@ -68,7 +68,7 @@ describe('hooray', function () {
     });
 
     describe('forEach', function () {
-        !true && it('should itearate an hooray without altering it', function () {
+        ('should itearate an hooray without altering it', function () {
             var hooray = new Hooray(1, 2, 3);
 
             var result = new Hooray;
@@ -85,7 +85,7 @@ describe('hooray', function () {
             expect(hooray).toEqual(jasmine.objectContaining(expected));
         });
 
-        !true && it('should do nothing if hooray has not content', function () {
+        ('should do nothing if hooray has not content', function () {
             var hooray = new Hooray;
 
             var result = new Hooray;
@@ -95,7 +95,7 @@ describe('hooray', function () {
             expect(result.length).toBe(0);
         });
 
-        !true && it('should break on undefined callback', function () {
+        it('should break on undefined callback', function () {
             var hooray = new Hooray(1, 2, 3);
 
             try {
@@ -109,7 +109,7 @@ describe('hooray', function () {
     });
 
     describe('concat', function() {
-        ! true && it('should concat some hooray in one', function() {
+        it('should concat some hooray in one', function() {
             var hooray1 = new Hooray('c','a','r')
             var hooray2 = new Hooray('d', 'a', 'n', 'i')
             
@@ -121,7 +121,7 @@ describe('hooray', function () {
     });
     
     describe('filter', function() {
-        ! true && it('should filter some items from hooray with a condition', function() {
+        it('should filter some items from hooray with a condition', function() {
             var hooray = new Hooray(1, 3, 5, 8, 10, 35, 40, 5, 23, 2, 7);    
             var answer = new Hooray(35, 40, 23);
     
@@ -130,7 +130,7 @@ describe('hooray', function () {
             expect(result).toEqual(answer);
         });
            
-        ! true && it('should break on undefined callback', function () {
+        it('should break on undefined callback', function () {
             var hooray = new Hooray(1, 3, 5, 8, 10, 35, 40, 5, 23, 2, 7);
     
             try {
@@ -144,7 +144,7 @@ describe('hooray', function () {
     });
 
     describe('indexOf', function() {
-        ! true && it('Should return the first index at which a given element can be found in the hooray', function() {
+        it('Should return the first index at which a given element can be found in the hooray', function() {
             var hooray = new Hooray('ant', 'bison', 'camel', 'duck', 'bison');
             var elem = 'camel'
             var answer = 2;
@@ -155,7 +155,7 @@ describe('hooray', function () {
     });
 
     describe('join', function() {
-        ! true && it('Creates and returns a new string by concatenating all of the elements in an hooray', function() {
+        it('Creates and returns a new string by concatenating all of the elements in an hooray', function() {
             var hooray = new Hooray('ant', 'bison', 'camel', 'duck');            
             var answer = 'ant, bison, camel, duck';
                 
@@ -166,7 +166,7 @@ describe('hooray', function () {
     })
 
     describe('lastIndexOf', function() {
-        ! true && it('Returns the last index at which a given element can be found in the hooray, or -1 ', function() {
+        it('Returns the last index at which a given element can be found in the hooray, or -1 ', function() {
             var hooray = new Hooray('ant', 'bison', 'camel', 'duck', 'bison');
             var elem = 'bison';
             
@@ -176,7 +176,7 @@ describe('hooray', function () {
             expect(result).toEqual(answer);    
         });
     
-        ! true && it('Returns the last index at which a given element can be found in the horray, or -1 ', function() {
+        it('Returns the last index at which a given element can be found in the horray, or -1 ', function() {
             var hooray = new Hooray('ant', 'bison', 'camel', 'duck', 'bison');
             var elem = 'cat';
     
@@ -187,7 +187,7 @@ describe('hooray', function () {
         });
     })
     describe('map', function() {
-        ! true &&it('Creates a new hooray with the results of calling a function on every element in the calling hooray', function() {
+        it('Creates a new hooray with the results of calling a function on every element in the calling hooray', function() {
             var hooray = new Hooray(1, 4, 9, 16);
             var answer = new Hooray(2, 8, 18, 32);
             var result = hooray.map(function(elem){return elem * 2});
@@ -196,7 +196,7 @@ describe('hooray', function () {
                             
         });
         
-        ! true && it('should break on undefined callback', function () {
+        it('should break on undefined callback', function () {
             var hooray = new Hooray(1, 4, 9, 16);
     
             try {
@@ -210,7 +210,7 @@ describe('hooray', function () {
     });
     
     describe('reduce', function() {
-        ! true && it('Reduce on each member of the hooray resulting in a single output value', function() {
+        it('Reduce on each member of the hooray resulting in a single output value', function() {
             var hooray = new Hooray(1, 2, 3, 4);
             var answer = 20;
     
@@ -220,7 +220,7 @@ describe('hooray', function () {
             expect(result).toEqual(answer);              
         });
     
-        ! true && it('Reduce on each member of the hooray resulting in a single output value', function() {
+        it('Reduce on each member of the hooray resulting in a single output value', function() {
             var hooray = new Hooray('c', 'a', 'r', 'm', 'e');
             var answer = 'ccarme';
     
@@ -230,7 +230,7 @@ describe('hooray', function () {
             expect(result).toEqual(answer);                                
         });
     
-        ! true && it('should break on undefined callback', function () {
+        it('should break on undefined callback', function () {
 
             expect(function(){hooray.reduce('frank')}).toThrowError();
         });
@@ -256,7 +256,7 @@ describe('hooray', function () {
             expect(result).toEqual(answer);     
         });
 
-        it('should break on undefined callback', function () {
+        ! true &&it('should break on undefined callback', function () {
     
         expect(function(){hooray.reduceRight('a')}).toThrowError();
         });
@@ -274,7 +274,7 @@ describe('hooray', function () {
     });
     
     describe('shift', function() {
-        ! true && it('removes the first element from an hooray', function() {
+        it('removes the first element from an hooray', function() {
             var hooray = new Hooray(1, 2, 3);    
             var answer = [2, 3]
     
@@ -294,7 +294,7 @@ describe('hooray', function () {
           
         });
     
-        ! true && it('should break on undefined array', function () {
+        it('should break on undefined array', function () {
             
             try {
                 isArray();
@@ -307,7 +307,52 @@ describe('hooray', function () {
     
     });
 
+    describe('slice', function() {
+        it('returns a portion of an hooray into a new hooray object selected from begin to end', function() {
+            var hooray = new Hooray('ant', 'bison', 'camel', 'duck', 'elephant');
+            var a = 2;
+            var b = 4;
+    
+            var answer = new Hooray('camel', 'duck');
+    
+            var result = hooray.slice(a, b);    
+            expect(result).toEqual(answer);
+        });
+    
+        it('returns a portion of an hooray into a new hooray object selected from begin to end', function() {
+            var hooray = new Hooray('ant', 'bison', 'camel', 'duck', 'elephant');
+            var a = 7;
+            var b = 4;
+    
+            var answer= new Hooray;
+    
+            var result = hooray.slice(a, b);    
+            expect(result).toEqual(answer);
+        });   
+    });
 
+    describe('some', function() {
+        it ('tests whether at least one element in the hooray passes the test implemented by the provided function', function() {
+            var hooray = [1, 2, 3, 4, 5];
+            var answer = true;
+    
+            var result = hooray.some(function(elem) {return (elem > 2)
+            })
+    
+            expect(result, answer);
+        });
+    });
 
-
+    describe('splice', function() {
+        it ('changes the contents of an hooray by removing or replacing existing elements and/or adding new elements', function() {
+            var hooray = new Hooray('Jan', 'Feb', 'March', 'April', 'June');
+            var answer = new Hooray('Jan', 'Feb', 'March', 'April', 'May');
+            var start = 4;
+            var delet = 1;
+            
+            var result = hooray.splice(start, delet, 'May');
+                
+            expect(result).toEqual(answer);
+        });       
+    });
 });
