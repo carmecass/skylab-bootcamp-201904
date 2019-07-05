@@ -5,29 +5,34 @@ import './index.sass'
 function Nav() {
 
     return (<Fragment>
-        <div id="navbar-top">
-            <ul className="navbar-left">
-                <li>
+        <section id="navbar-top">
+            <div className="navbar-left">
+                <div>
                     <Link to="/search/category">
-                        <img id="logo" src="/../../../images/logo.png" alt="logo"/>
+                        <img id="logo" src="/../../../images/logo.png" alt="logo" />
                     </Link>
-                </li>
-            </ul>
+                </div>
+            </div>
             <div className="navbar-right">
-                <ul className="navigation">
-                    <li>
+                <div className="navigation">
+                    <div>
                         <Link to="/search/user/things">
-                            <img id="awards" src="/../../../images/award.png" alt="awards"/>
+                            <img id="awards" src="/../../../images/award.png" alt="awards" />
                         </Link>
-                    </li>  
-                    <li>
+                    </div>
+                    <div>
                         <Link to="/things">
                             <img id="put" src="/../../../images/put.png" alt="put" />
                         </Link>
-                    </li>
-                </ul>
+                    </div>
+                    <div className="map">
+                        <Link to="/search/locations">
+                            <img className="img-map" id="map" src="../../../images/map.png" alt="map" />
+                        </Link>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </Fragment>
     )
 }

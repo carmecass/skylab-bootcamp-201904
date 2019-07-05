@@ -1,24 +1,27 @@
-.contens2
+body 
+    justify-content: center
+
+.contens1
 	margin-top: 4.5rem 
     // position: fitxed
     // height: 400px
 
 
-.navigation-bodyresults
-	margin: 0 
+.navigation-bodyresults1
+	// margin: 0 
 	display: list-item 
 	-webkit-flex-flow: row wrap 
 	flex-flow: row wrap 
 	justify-content: space-around 
 
-.imgresults
+.imgresults1
     height: 6rem 
     object-fit: cover 
     object-position: center 
-    margin-right: 0.5rem
-    margin-top: 0.3rem
+    // margin-right: 0.5rem
+    // margin-top: 0.3rem
 
-.liresults
+.liresults1
     // object-fit: cover 
     background-color: transparent 
     padding: 0.2rem 
@@ -33,3 +36,18 @@
 	display: flex 
 	div 
 		padding: 0.3rem 
+
+@media screen and (min-width: 385px) 
+
+    .contens1
+        display: flex
+        justify-content: center
+        
+    .navigation-bodyresults1
+        width: 80%
+        display: block
+       
+    .liresults1
+        display: block
+        justify-items: center
+        padding: 1.5rem

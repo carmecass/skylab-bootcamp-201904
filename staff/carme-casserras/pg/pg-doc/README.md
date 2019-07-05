@@ -22,6 +22,9 @@ You could leave the thing you don't have use for them anymore (not broken) in a 
 ## Data Model
 ![datamodel](./images/Datamodel.png)
 
+##Technologies
+Javascript, ReactJs, Mode.js, Express, MongoDB & Mongoose.
+
 ## Code Coverage
 ![codecoverage](./images/coverage.jpg)
 

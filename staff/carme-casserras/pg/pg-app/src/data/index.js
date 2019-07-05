@@ -1,10 +1,10 @@
 import validate from 'pg-validate'
 import call from 'pg-call'
 
-const pgApi = {
+const { REACT_APP_URL1 } = process.env
 
-    __url__: 'https://salty-ridge-23134.herokuapp.com/api',
-    // __url__: ' http://localhost:8080/api',
+const pgApi = {
+    __url__: REACT_APP_URL1,
     __timeout__: 0,
 
 /**

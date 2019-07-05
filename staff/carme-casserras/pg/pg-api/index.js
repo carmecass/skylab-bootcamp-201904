@@ -14,10 +14,10 @@ const {env: {PORT, MONGO_URL : url}, argv: [, , port = PORT || 8080], } = proces
 mongoose.connect(url, {useNewUrlParser: true, useFindAndModify:false, useCreateIndex: true});
 
 app.use(cors())
-app.use('/api', router)
+app.use('/api/', router)
 
 
 
 app.listen(port, () => {
-    console.log(`servidor conectado al puerto ${port}`)
+    console.log(`servidor conectado al puerto ${PORT}`)
 })

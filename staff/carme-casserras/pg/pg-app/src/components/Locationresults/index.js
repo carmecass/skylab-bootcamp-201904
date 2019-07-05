@@ -19,17 +19,17 @@ function LocationResults({locationPoint, history}) {
         history.push('/thing/' + id)
     }
 
-    return (<div className="contens2">
-        <ul className="navigation-bodyresults">
+    return (<div className="contens1">
+        <ul className="navigation-bodyresults1">
 
             {results &&
 
                 results.map(({ _id: id, status, image, category, description, loc: { name }, loc: { address } }) => {
 
                     return status === 0 &&
-                        (<li className="liresults" key={id} onClick={() => handleLocation(id)}>
-                            <div className="product-short">
-                                <img className="imgresults" src={image} />
+                        (<li className="liresults1" key={id} onClick={() => handleLocation(id)}>
+                            <div className="product-short1">
+                                <img className="imgresults1" src={image} />
                                 <div>
                                     <h2><strong>Category: </strong> {category}</h2>
                                     <p><strong>Description: </strong> {description}</p>

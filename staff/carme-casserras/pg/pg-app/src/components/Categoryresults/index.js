@@ -22,17 +22,17 @@ function CategoryResults(props) {
         props.history.push('/thing/' + id)
     }
 
-    return (<div className="contens2">
-        <ul className="navigation-bodyresults">
+    return (<div className="contens1">
+        <ul className="navigation-bodyresults1">
 
             {results &&
 
                 results.map(({ _id: id, status, image, category, description, loc: { name }, loc: { address } }) => {
 
                     return status === 0 &&
-                        (<li className="liresults" key={id} onClick={() => handleThing(id)}>
-                            <div className="product-short">
-                                <img className="imgresults" src={image} alt="" />
+                        (<li className="liresults1" key={id} onClick={() => handleThing(id)}>
+                            <div className="product-short1">
+                                <img className="imgresults1" src={image} alt="" />
                                 <div className="info">
                                     <h2><strong>Category: </strong> {category}</h2>
                                     <p><strong>Description: </strong> {description}</p>

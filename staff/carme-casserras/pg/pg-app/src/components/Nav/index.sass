@@ -28,7 +28,6 @@
   -webkit-flex-flow: row wrap
   justify-content: space-evenly
 
-
 a
   text-decoration: none
   display: block
@@ -37,7 +36,27 @@ a
     opacity: 0.5
 
 ul li img
-  // abans 2 rem
   height: 2.5rem
   object-fit: cover
   object-position: center
+
+.map
+  display: none
+
+@media screen and (min-width: 385px) 
+  #navbar-top
+    height: 12%
+
+  .navbar-right
+    width: 30%
+    float: right
+
+  .map
+    display: inline
+
+  img 
+    height: 2.5rem
+
+  .img-map
+    height: 2.4rem
+

@@ -5,16 +5,15 @@ import './index.sass'
 function Map() {    
 
     return (<Fragment>
-        <div id="navbar-bottom">
-            <ul className="navigation">
-                <li>
-                    {/* <Link to="/search/locations"> */}
+        <section id="navbar-bottom">
+            <div className="navigation">
+                <div>
                     <Link to="/search/locations">
                         <img className="img-map" id="map" src="../../../images/map.png" alt="map"/>
                     </Link>
-                </li>
-            </ul>
-        </div>
+                </div>
+            </div>
+        </section>
     </Fragment>
     )
 }

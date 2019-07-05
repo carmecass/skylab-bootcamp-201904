@@ -26,25 +26,25 @@ function RetrieveThing(props) {
 
     const { image, category, description, loc: { name }, loc: { address } } = thing
     return (
-        <form>
+        <form className="form">
             <div className="contens4" key={id}>
                 <div className="contens-center4" >
-                <div className="image-big4">
-                    <img src={image} alt="" />
-                </div>
-                <div className="text">
-                    <h2><strong>Category: </strong> {category}</h2>
-                    <p><strong>Description: </strong> {description}</p>
-                    <p><strong>Location: </strong> {name}</p>
-                    <p><strong>Address: </strong> {address}</p>
-                </div>
+                    <div className="image-big4">
+                        <img className="img" src={image} alt="" />
+                    </div>
+                    <div className="text">
+                        <h2><strong>Category: </strong> {category}</h2>
+                        <p><strong>Description: </strong> {description}</p>
+                        <p><strong>Location: </strong> {name}</p>
+                        <p><strong>Address: </strong> {address}</p>
+                    </div>
                     <div className="buttons">
                         <ul className="navigation">
                             <li>
                                 <img className="get" src="/../../../images/get.png" onClick={() => handleGet(id, 1)} alt="get" />
                             </li>
                             <li>
-                                <img className="notfound"src="/../../../images/notfound.png" onClick={() => handleGet(id, 2)} alt="not found" />
+                                <img className="notfound" src="/../../../images/notfound.png" onClick={() => handleGet(id, 2)} alt="not found" />
                             </li>
                         </ul>
                     </div>

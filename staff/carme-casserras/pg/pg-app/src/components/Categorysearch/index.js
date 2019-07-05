@@ -19,27 +19,27 @@ function CategorySearch(props) {
 
    const handleSearchByCategory = id => {
 
-     if(!logic.isUserLoggedIn) props.history.push('/login')
-     else props.history.push('/search/category/' + id)
+      if (!logic.isUserLoggedIn) props.history.push('/login')
+      else props.history.push('/search/category/' + id)
    }
-        
-   const renderCategory = () => (
-      <div className="contens1">
-         {/* <div > */}
-            <ul className="navigation-body"> 
-         {
-            Object.values(nameCategory).map(id => {   
 
-                  return (                    
-                  <li key={id} onClick={() => handleSearchByCategory(id)} className="lisearch" htmlFor={id}>
-                     <img className="imgsearch" src={`../../../images/${id}.png`} alt=""/>
-                  </li>
-               )} 
-            )
-         }
-            </ul>
-         {/* </div> */}
-         {<Footer/>}
+   const renderCategory = () => (
+      <div className="contens">
+         <ul className="navigation-body">
+            {
+               Object.values(nameCategory).map(id => {
+
+                  return (
+                     <li key={id} onClick={() => handleSearchByCategory(id)} className="lisearch" htmlFor={id}>
+                        <img className="imgsearch" src ={`../../../images/${id}.png`} alt="" />
+                     </li>
+                  )
+               }
+               )
+            }
+         </ul>
+
+         {<Footer />}
       </div>
    )
 
@@ -48,7 +48,7 @@ function CategorySearch(props) {
          <form>
             {renderCategory()}
          </form>
-         {query && <CategoryResults  query={query}/>}
+         {query && <CategoryResults query={query} />}
       </div>
    )
 }

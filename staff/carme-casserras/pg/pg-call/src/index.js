@@ -57,4 +57,3 @@ function call(url, options = {}) {
     })()
 }
 export default call
-// module.exports = call

@@ -15,7 +15,7 @@ function UserThings() {
         retrieve()
     }, [])
 
-    return (<div className="contens3">
+    return (<div className="contens1">
         <ul className="navigation-bodyresults1">
             <div className="awards">
                 <h1><strong>AWARDS</strong></h1>
@@ -39,7 +39,7 @@ function UserThings() {
                                     <p><strong>Description: </strong> {description}</p>
                                     <p><strong>Location: </strong> {name}</p>
                                 </div>
-                            </div>
+                             </div>
                         </li>)
                 })
             }
