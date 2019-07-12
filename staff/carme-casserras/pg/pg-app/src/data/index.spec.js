@@ -6,7 +6,9 @@ import jwt from 'jsonwebtoken'
 import { models, mongoose } from 'pg-data'
 const { UserData, Thing, Location } = models
 
-const url = 'mongodb://localhost:27017/pg-test'
+// const url = 'mongodb://localhost:27017/pg-test'
+
+const { env: { MONGO_URL_TEST: url } } = process
 
 jest.setTimeout(100000)
 

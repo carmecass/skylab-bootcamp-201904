@@ -1,10 +1,10 @@
 import validate from 'pg-validate'
 import call from 'pg-call'
 
-const { REACT_APP_URL1 } = process.env
+const { REACT_APP_URL_LOCAL } = process.env
 
 const pgApi = {
-    __url__: REACT_APP_URL1,
+    __url__: REACT_APP_URL_LOCAL,
     __timeout__: 0,
 
 /**

@@ -29,7 +29,7 @@ function LocationResults({locationPoint, history}) {
                     return status === 0 &&
                         (<li className="liresults1" key={id} onClick={() => handleLocation(id)}>
                             <div className="product-short1">
-                                <img className="imgresults1" src={image} />
+                                <img className="imgresults1" src={image}  alt=""/>
                                 <div>
                                     <h2><strong>Category: </strong> {category}</h2>
                                     <p><strong>Description: </strong> {description}</p>

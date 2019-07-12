@@ -15,7 +15,7 @@ const nameCategory = {
 
 function CategorySearch(props) {
 
-   const [query, setQuery] = useState(null)
+   const [query] = useState(null)
 
    const handleSearchByCategory = id => {
 
@@ -24,7 +24,7 @@ function CategorySearch(props) {
    }
 
    const renderCategory = () => (
-      <div className="contens">
+      <div className="contens3">
          <ul className="navigation-body">
             {
                Object.values(nameCategory).map(id => {

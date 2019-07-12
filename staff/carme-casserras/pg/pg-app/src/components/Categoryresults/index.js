@@ -23,12 +23,15 @@ function CategoryResults(props) {
     }
 
     return (<div className="contens1">
+
+        
         <ul className="navigation-bodyresults1">
 
             {results &&
+            
 
-                results.map(({ _id: id, status, image, category, description, loc: { name }, loc: { address } }) => {
-
+                results.map(({id, status, image, category, description, loc: { name }, loc: { address } }) => {
+                  
                     return status === 0 &&
                         (<li className="liresults1" key={id} onClick={() => handleThing(id)}>
                             <div className="product-short1">

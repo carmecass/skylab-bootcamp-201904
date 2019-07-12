@@ -1,12 +1,13 @@
 import logic from '.'
-import { RequirementError, ValueError, LogicError, HttpError } from 'pg-errors'
+import { RequirementError, ValueError, LogicError } from 'pg-errors'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { models, mongoose } from 'pg-data'
 import pgApi from '../data';
 const { UserData, Thing, Location } = models
 
-const url = 'mongodb://localhost:27017/pg-test'
+// const url = 'mongodb://localhost:27017/pg-test'
+const { env: { MONGO_URL_TEST: url } } = process
 
 jest.setTimeout(100000)
 

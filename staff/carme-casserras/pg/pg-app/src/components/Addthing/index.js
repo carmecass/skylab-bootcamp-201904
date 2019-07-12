@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './index.sass'
 import logic from '../../logic'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 const locations = [
     {

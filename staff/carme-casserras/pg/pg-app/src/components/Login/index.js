@@ -4,7 +4,7 @@ import logic from '../../logic'
 
 function Login(props) {
     const [messageError, setMessageError] = useState(null)
-    const [success, setSuccessMessage] = useState(null)
+    const [setSuccessMessage] = useState(null)
 
     const { match: { params: { register } } } = props
 

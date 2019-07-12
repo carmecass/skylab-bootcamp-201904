@@ -1,10 +1,10 @@
 import validate from 'pg-validate'
-import { LogicError} from 'pg-errors'
+import { LogicError } from 'pg-errors'
 import normalize from 'pg-normalize'
 import pgApi from '../data'
 
 const logic = {
-    
+
     set __userToken__(token) {
         sessionStorage.userToken = token
     },
@@ -14,7 +14,7 @@ const logic = {
     },
 
     get isUserLoggedIn() {
-        return !!(this.__userToken__) 
+        return !!(this.__userToken__)
     },
 
     /**
@@ -35,17 +35,16 @@ const logic = {
         ])
 
         validate.email(email)
-        
+
 
         return (async () => {
-            try{
-                
-                return await pgApi.registerUser(name, email, password)    
-                
-            } catch (err) {
-                
-                throw Error(err.message)
-            }           
+            try {
+                return await pgApi.registerUser(name, email, password)
+
+            } catch ({ message }) {
+
+                throw new LogicError(message)
+            }
         })()
     },
 
@@ -66,48 +65,49 @@ const logic = {
         ])
 
         validate.email(email)
-        
-        return pgApi.authenticateUser(email, password) 
-            .then(({ token }) => {
+
+        return (async () => {
+
+            try {
+                const { token } = await pgApi.authenticateUser(email, password)
+                if (!token) throw new LogicError(`user with email ${email} does not exist`)
                 this.__userToken__ = token
-            })
-            .catch(err => {
+            } catch (err) {
                 throw new LogicError(err.message)
-            })          
+            }
+        })()
     },
 
-     /**
-     * Returns some information of user
-     * 
-     * @param {*} id user
-     * 
-     * @returns {object} userid, name, email
-     * 
-     */
+    /**
+    * Returns some information of user
+    * 
+    * @param {*} id user
+    * 
+    * @returns {object} userid, name, email
+    * 
+    */
 
-    retrieveUser() {
+    async retrieveUser() {
 
-        return pgApi.retrieveUser(this.__userToken__)
+        try {
+            const user = await pgApi.retrieveUser(this.__userToken__)
+            return user
+        } catch ({message}) {
 
-        .then(response => {
-            const { error } = response
-
-            if (error) throw new LogicError(error)
-
-            return response
-        })
+            throw new LogicError(message)
+        }
     },
 
-     /**
-     * Add an item to container
-     * 
-     * @param {object} buffer 
-     * @param {string} category 
-     * @param {string} description 
-     * @param {string} userId 
-     * @param {string} locId 
-     * 
-     */
+    /**
+    * Add an item to container
+    * 
+    * @param {object} buffer 
+    * @param {string} category 
+    * @param {string} description 
+    * @param {string} userId 
+    * @param {string} locId 
+    * 
+    */
 
     addPublicThings(image, category, description, locId) {
         validate.arguments([
@@ -124,10 +124,10 @@ const logic = {
         formData.append('description', description)
         formData.append('locId', locId)
 
-        return (async () => {      
-               
-        return await pgApi.addPublicThing(formData, this.__userToken__)      
-                               
+        return (async () => {
+
+            return await pgApi.addPublicThing(formData, this.__userToken__)
+
         })()
     },
 
@@ -143,34 +143,34 @@ const logic = {
     updatePublicThing(id, status) {
         validate.arguments([
             { name: 'id', value: id, type: 'string', notEmpty: true },
-            { name: 'status', value: status, type: 'number'}
+            { name: 'status', value: status, type: 'number' }
         ])
-        return (async () => { 
+        return (async () => {
 
-        return await pgApi.updatePublicThing(this.__userToken__, id, status)      
+            return await pgApi.updatePublicThing(this.__userToken__, id, status)
         })()
-            
+
     },
 
-     /**
-     * Seach all the items by category
-     * 
-     * @param {*} userId 
-     * @param {*} category 
-     * 
-     * @returns {array} for each item returns: status, image, category, description, location, address 
-     * 
-     */
+    /**
+    * Seach all the items by category
+    * 
+    * @param {*} userId 
+    * @param {*} category 
+    * 
+    * @returns {array} for each item returns: status, image, category, description, location, address 
+    * 
+    */
 
     searchByCategory(category) {
         validate.arguments([
-           
+
             { name: 'category', value: category, type: 'string', notEmpty: true }
         ])
 
-        return (async () =>{
-            return await pgApi.searchByCategory(this.__userToken__, category)             
-        })()           
+        return (async () => {
+            return await pgApi.searchByCategory(this.__userToken__, category)
+        })()
     },
 
     /**
@@ -184,13 +184,13 @@ const logic = {
 
     searchByLocation(location) {
         validate.arguments([
-           
+
             { name: 'location', value: location, type: 'string', notEmpty: true }
         ])
 
-        return (async () =>{
-            return await pgApi.searchByLocation(this.__userToken__, location)             
-        })()           
+        return (async () => {
+            return await pgApi.searchByLocation(this.__userToken__, location)
+        })()
     },
 
     /**
@@ -203,11 +203,11 @@ const logic = {
      */
 
     retrivePrivateThings() {
-        
-        return (async () =>{
-            
-            return await pgApi.retrivePrivateThings(this.__userToken__)                          
-        })()           
+
+        return (async () => {
+
+            return await pgApi.retrivePrivateThings(this.__userToken__)
+        })()
     },
 
     /**
@@ -217,16 +217,16 @@ const logic = {
      * 
      * @returns {array} image, category, description, location, address 
      */
-    
+
     retrieveThing(thingId) {
-        validate.arguments([          
+        validate.arguments([
             { name: 'thingId', value: thingId, type: 'string', notEmpty: true },
         ])
 
-        return (async () =>{
+        return (async () => {
 
-            return await pgApi.retrieveThing(this.__userToken__, thingId)             
-        })()    
+            return await pgApi.retrieveThing(this.__userToken__, thingId)
+        })()
     }
 }
 

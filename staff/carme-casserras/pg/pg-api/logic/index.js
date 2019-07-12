@@ -182,7 +182,16 @@ const logic = {
         return (async () => {
             try {
 
-                return await Thing.find({ category }).populate('loc', 'name address -_id').select('status image category description loc').lean()
+                let things = await Thing.find({ category }).populate('loc', 'name address -_id').select('status image category description loc').lean()
+                            
+                things = things.map(thing => {                    
+                    thing.id = thing._id
+                    delete thing._id
+                    return thing
+                })
+                
+                // console.log(things)
+                return things
             }
             catch (err) {throw new LogicError(err)}
         })()
@@ -207,9 +216,21 @@ const logic = {
 
             const all = await Thing.find().populate('loc', 'name address -_id').select('-__v -owner')
 
-            const locationThings = all.filter(thing => thing.loc.name === location)
-
-            return locationThings
+            let locationThings = all.filter(thing => thing.loc.name === location)
+            
+            let _locationThings = locationThings.map(_thing => {
+                _thing.id = _thing._id
+                delete _thing._id
+                console.log(_thing._id)
+                console.log(_thing.id)
+                
+                return _thing
+            })
+            
+            console.log(_locationThings)
+           
+            
+            return _locationThings
 
         })()
 
